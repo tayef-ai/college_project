@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-3">
+    <h2 class="text-center">সকল নোটিশসমূহ</h2>
+    <main class="cd__main">
+    <table class="table" id="example"> 
+        <thead>
+        <tr class="text-center">
+            <th>Sl. no.</th>
+            <th>Title</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for notice in notices %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td><a href="{{notice.document.url}}" target="_blank">{{notice.title}}</a></td>
+            <td>{{notice.date|date:"d-M-Y"}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</main>
+</div>
+{% endblock content %}

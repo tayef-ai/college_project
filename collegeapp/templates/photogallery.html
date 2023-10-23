@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-3">
+    <!-- <div class="row mt-3">
+        <div class="col-sm-12">
+            <div class="card shadow">
+                <div class="text-center"> -->
+    <h3 class="my-2 text-center">ফটো গ্যালারি</h3>
+    <div class="row row-cols-2 row-cols-md-5 g-4">
+        {% for carousal in page_obj %}
+        <div class="col">
+            <div class="card h-100">
+                <img src="{{carousal.image.url}}" class="card-img-top py-2 px-2 myimage"
+                    style="height: 200px; width: 200px;" alt="...">
+                <div class="card-footer">
+                    <small class="text-body-secondary">Date: {{carousal.date|date:"d-M-Y"}}</small>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if page_obj.paginator.num_pages > 24 %}
+    <nav aria-label="Page navigation example">
+        <ul class="pagination my-4">
+            {% if page_obj.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            </li>
+            {% endif %}
+            {% for page_number in page_obj.paginator.page_range %}
+            {% if page_obj.number == page_number %}
+            <li class="page-item active" aria-current="page">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% else %}
+            <li class="page-item"></li><a href="?page={{ page_number }}" class="page-link">{{ page_number }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+{% endblock content %}

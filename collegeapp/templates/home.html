@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="marquee-container pt-2">
+        <h5 class="px-2 py-2 bg-primary shadow" style="color: white;">Latest Notices:</h5>
+        <div class="marquee-content">
+            <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+                <h5 style="display:flex; gap: 80px;">
+                    {% for notice in notices %}
+                    <a href="{{notice.document.url}}" target="_blank">***{{notice.title}}***</a>
+                    {% endfor %}
+                    </h5>
+                <!-- Add more notice content here -->
+            </marquee>
+        </div>
+    </div>
+    <div style="background-color: whitesmoke;" id="carouselExampleAutoplaying"
+        class="carousel slide py-2 px-2 shadow" data-bs-ride="carousel">
+        <div class="carousel-inner ht-50">
+            {% for carousal in carousals %}
+            <div class="carousel-item active">
+                <img src="{{carousal.image.url}}" class="d-block w-100 h-50" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <!-- <h5>First slide label</h5> -->
+                </div>
+            </div>
+            {% endfor %}
+            <!-- <div class="carousel-item">
+                <img src="FB_IMG_1690787538370.jpg" class="d-block w-100 h-50" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="4.jpg" class="d-block w-100 h-50" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div> -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card shadow">
+                        <div class="text-center">
+                            <img src="{{quote.chairman_image.url}}" alt="..."
+                                style="border-radius: 50%; height: 300px; width: 300px;" class="py-3 px-3 img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">সভাপতির বাণী</h5>
+                            <p class="card-text" style="text-align: justify; line-height: 1.5;">{{quote.chairman_quote|truncatewords:40}}<a href="{% url 'cp' 'chairman' %}" style="color: blue;">See more</a></p>
+                            <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
+                                    ago</small></p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card shadow">
+                        <div class="text-center">
+                            <img src="{{quote.principal_image.url}}" alt="..."
+                                style="border-radius: 50%; height: 300px; width: 300px;" class="py-3 px-3 img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">অধ্যক্ষের বাণী</h5>
+                            <p class="card-text" style="text-align: justify; line-height: 1.5;">{{quote.principal_quote|truncatewords:40}}<a href="{% url 'cp' 'principal' %}" style="color: blue;">See more</a></p>
+                            <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
+                                    ago</small></p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-12">
+                    <div class="card shadow">
+                        <div class="text-center">
+                            <h4 class="my-2">ফটো গ্যালারি</h4>
+                            {% for carousal in photo_gallery %}
+                            <img src="{{carousal.image.url}}" alt="..." class="py-2 px-2 myimage" style="height: 200px; width: 200px;">
+                            {% endfor %}
+                            <!-- <img src="20171226_215543.jpg" alt="..." class="py-2 px-2 myimage" style="height: 200px; width: 200px;">
+                            <img src="20171226_215543.jpg" alt="..." class="py-2 px-2 myimage" style="height: 200px; width: 200px;"> -->
+                        </div>
+                        <hr>
+                        <a href="{% url 'photogallery' %}" class="text-center pb-3">Show All</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="card shadow">
+                <div class="card-header fw-bold text-center" style="font-size: 1.5em;">
+                    নোটিশ বোর্ড
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for notice in notices %}
+                    <li class="list-group-item news-item">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="col-sm-12 text-center notice-month">
+                                    {{notice.date|date:'F' }}
+                                </div>
+                                <div class="col-sm-12 text-center notice-date">
+                                    {{notice.date.day}}
+                                </div>
+                            </div>
+                            <div class="col-sm-9">
+                                <a href="{{notice.document.url}}" target="_blank">{{notice.title}}</a>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                    <li class="list-group-item text-end"><a href="{% url 'allnotice' %}" class=" btn btn-sm btn-primary"
+                            style="color: whitesmoke !important;">Show All</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

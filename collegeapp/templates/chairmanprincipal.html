@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container text-center my-3">
+    <h3 class="py-2">{{name}}</h3>
+    <img src="{{pic.url}}" alt="" class="img-fluid shadow mb-4"  style="border-radius: 20%; height: 300px; width: 300px;">
+    <pre style="text-align: justify; line-height: 1.5;">{{des}}</pre>
+</div>
+{% endblock content %}

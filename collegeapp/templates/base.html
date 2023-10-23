@@ -1,0 +1,134 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SSQCDC</title>
+        <link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/x-icon">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+            integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/demo.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    </head>
+
+    <body>
+        <div class="container-fluid" style="background-color: rgb(161, 3, 3);">
+            <div class="row">
+                <div class="col-sm-2 pt-3 px-5 text-center text-white">
+                    <img src="{% static 'images/bongobondhu.png' %}" height="100px" width="100px" style="background-color: white;" alt="">
+                    <p><a href="https://mujib100.gov.bd/index_bn.html" target="_blank">বঙ্গবন্ধু কর্ণার</a></p>
+                </div>
+                <div class="col-sm-8">
+                    <div class="pt-3 d-flex align-items-center justify-content-center text-center text-white">
+                        <img src="{% static 'images/logo.jpg' %}" style="border-radius: 50%; height: 100px; width: 105px;" alt="">
+                        <div class="ms-2">
+                            <h6><i>শিক্ষা নিয়ে গড়ব দেশ, শেখ হাসিনার বাংলাদেশ</i></h6>
+                            <h2 class="fw-bold">সৈয়দা সেলিমা কাদের চৌধুরী ডিগ্রি কলেজ</h2>
+                            <h5>পোমরা, রাঙ্গুনিয়া, চট্টগ্রাম</h5>
+                            <h6>EIIN: 104847 | College MPO Code: 0210143102 | শিক্ষা বোর্ড কোডঃ ৩৬০৪ | জাতীয় বিশ্ববিদ্যালয় কোডঃ ৭০০৫ </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 px-5 pt-3 text-center text-white">
+                    <img src="{% static 'images/subornojoyonti.png' %}" height="100px" width="100px" style="background-color: white;" alt="">
+                    <p><a href="https://bn.wikipedia.org/wiki/%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%E0%A6%A6%E0%A7%87%E0%A6%B6%E0%A7%87%E0%A6%B0_%E0%A6%B8%E0%A7%8D%E0%A6%AC%E0%A6%BE%E0%A6%A7%E0%A7%80%E0%A6%A8%E0%A6%A4%E0%A6%BE%E0%A6%B0_%E0%A6%B8%E0%A7%81%E0%A6%AC%E0%A6%B0%E0%A7%8D%E0%A6%A3%E0%A6%9C%E0%A6%AF%E0%A6%BC%E0%A6%A8%E0%A7%8D%E0%A6%A4%E0%A7%80"
+                            target="_blank">স্বাধীনতার সুবর্ণজয়ন্তী কর্ণার</a></p>
+                </div>
+            </div>
+            <div class="container mynav">
+                <nav class="navbar navbar-expand-lg" style="background-color: yellow;">
+                    <div class="container-fluid">
+                        <!-- <a class="navbar-brand" href="#"></a> -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}"><i class="fas fa-home fa-fw fa-1x" style="color: rgb(161, 3, 3);"></i>হোমপেজ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{{info.protisthan_porichiti.url}}" target="_blank">প্রতিষ্ঠান পরিচিতি</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="{{info.pathdan_songkranto.url}}" target="_blank" role="button" aria-expanded="false">শিক্ষার্থী তথ্য</a>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" href="{{info.eleven_class.url}}" target="_blank">একাদশ শ্রেণি</a></li>
+                                      <li><a class="dropdown-item" href="{{info.tweleve_class.url}}" target="_blank">দ্বাদশ শ্রেণি</a></li>
+                                      <li><a class="dropdown-item" href="{{info.degree_class.url}}" target="_blank">ডিগ্রি পাস কোর্স</a></li>
+                                    </ul>
+                                  </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{info.pathdan_songkranto.url}}" target="_blank">পাঠদান সংক্রান্ত তথ্য</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{info.mpo_info.url}}" target="_blank">এম,পি,ও তথ্য</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{info.teacher_staff.url}}" target="_blank">শিক্ষক ও কর্মচারী</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{info.managing_committee.url}}" target="_blank">ব্যবস্থাপনা কমিটি</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'contact' %}">যোগাযোগ</a>
+                                </li>
+                            </ul>
+                            <!-- <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form> -->
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        {% block content %}
+        {% endblock content %}
+        <footer class="container-fluid bg-dark text-white" style="border-top: 5px solid rgb(161, 3, 3);">
+            <div class="container">
+              <div class="row py-3">
+                <div class="col-md-6">
+                    <div>Total Visitors: {{ visitor_count }}</div>
+                  <span>Follow Us:</span>
+                  <a href="https://www.facebook.com/selimaQuaderCollege" target="_blank" class="ps-3"><i class="fab fa-facebook" style="color: rgb(245, 225, 225);"></i></a>
+                  <a href="#" class="ps-3"><i class="fab fa-youtube" style="color: rgb(245, 225, 225);"></i></a>
+                </div>
+                <div class="col-md-6 text-end">
+                  <small>Developed By: Khandaker Tayef Shahriar <br> Lecturer, ICT</small> &copy; 2023
+                </div>
+              </div>
+            </div>
+          </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+        <script>
+            window.addEventListener("scroll", function () {
+                var navbar = document.querySelector(".mynav");
+                if (window.pageYOffset > 100) {
+                    navbar.classList.add("fixed-top");
+                } else {
+                    navbar.classList.remove("fixed-top");
+                }
+            });
+        </script>
+        <script src='https://code.jquery.com/jquery-3.7.0.js'></script>
+        <!-- Data Table JS -->
+        <script src='https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js'></script>
+        <script src='https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js'></script>
+        <script src='https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js'></script>
+              <!-- Script JS -->
+              <script src="{% static 'js/script.js' %}"></script>
+              <!--$%analytics%$-->
+    </body>
+</html>
